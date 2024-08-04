@@ -217,64 +217,6 @@ h3 {
 }
 
 
-/* Base styles */
-.solutions {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0 0 10px rgb(0, 0, 0);
-  border-radius: 10px;
-}
-.solutions p {
-  padding: 5px;
-}
-
-.solutions h1 {
-  padding: 5px;
-}
-
-.solutions-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 10px;
-}
-
-.solutions-row .solutions-col {
-  background-color: #007BFF;
-  padding: 25px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.solutions-row .solutions-col h3 {
-  color: #fff;
-}
-.solutions-row .solutions-col p {
-  color: #fff;
-}
-.solutions-row .solutions-col a:hover {
-  scale: 1.3;
-}
-.solutions-col .icon7, .solutions-col .icon8, .solutions-col .icon9, .solutions-col .icon10, .solutions-col .icon11, .solutions-col .icon12 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.solutions-col a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #fff; /* Adjust color as needed */
-}
-.solutions-col:hover {
-
-  transition: 0.3s ease-in-out;
-  color: #fff;
-  transform: rotate(1turn);
-}
-
 
 
 
@@ -325,7 +267,7 @@ h3 {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-select {
+textarea, select {
   width: 100%;
   padding: 0.625rem;
   margin: 0.3125rem 0;
@@ -333,6 +275,7 @@ select {
   border-radius: 0.3125rem;
   border: none;
 }
+
 
 .submit-btn {
   margin-top: 0.625rem;
