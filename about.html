@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalinchowk Hotel & Guest House</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <script src="https://kit.fontawesome.com/4d276fa6f1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Navigation Menu Open-->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="index.html">Kalinchowk Hotel & Guest House</a></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#services" id="scrollToServices">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#contact" id="scrollToServices">Contact</a></li>
+                <li><a href="index.html#request" id="scrollToServices">Call</a></li>
+
+            </ul>
+            <a href="https://www.zoho.com/mail" class="action_btn">Email</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services" id="scrollToServices">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#contact" id="scrollToServices">Contact</a></li>
+            <li><a href="index.html#request" id="scrollToServices">Call</a></li>
+            <a href="https://www.zoho.com/mail" class="action_btn">Email</a>
+        </div>
+    </header>
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        };
+    </script>
+    <!--Navigation Menu Close-->
+
+
+    <section class="about-us">
+        <h2>Our Story</h2>
+        <p>At Kalinchowk Hotel & Guest House, we take pride in offering a blend of modern comforts and authentic local charm. Our family-owned guest house has been serving guests from around the world with dedication and care. Inspired by the natural beauty and rich cultural heritage of Pokhara, we strive to create an environment where you can feel right at home.</p>
+
+        <h2>Our Facilities</h2>
+        <ul>
+            <li><strong>Comfortable Rooms:</strong> Each of our well-appointed rooms is designed to provide a restful retreat, complete with modern amenities and stunning views of the surrounding landscape.</li>
+            <li><strong>Personalized Service:</strong> Our attentive staff is committed to making your stay enjoyable. Whether you need assistance with local travel arrangements or personalized recommendations for exploring Pokhara, we are here to help.</li>
+            <li><strong>Delicious Dining:</strong> Enjoy a range of breakfast options featuring local and international cuisine. We focus on fresh ingredients and delicious flavors to start your day off right.</li>
+            <li><strong>Convenient Location:</strong> Our guest house is ideally situated to offer easy access to popular attractions and activities in Pokhara, including serene lakes, picturesque hills, and vibrant local markets.</li>
+        </ul>
+
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide an exceptional guest experience by combining comfort, convenience, and local authenticity. We are dedicated to ensuring that every guest leaves with lasting memories and a desire to return.</p>
+
+        <p>Thank you for choosing Kalinchowk Hotel & Guest House. We look forward to welcoming you and making your stay in Pokhara truly memorable.</p>
+
+        <h2>Contact Us</h2>
+        <address>
+            <p><strong>Address:</strong> Kalinchowk Hotel & Guest House, Naghdhuga Road, Pokhara-09, Nepal</p>
+            <p><strong>Phone:</strong> 9866394400</p>
+            <p><strong>Email:</strong> <a href="mailto: thaparamhari418@gmail.com">thaparamhari418@gmail.com</a></p>
+            <p><strong>Website:</strong> <a href="www.kalinchowkhotel.com.np" target="_blank">Kalinchowk Hotel</a></p>
+        </address>
+    </section>
+
+
+
+
+
+
+
+        <!-- Copyright Open -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Kalinchowk Hotel & Guest All rights reserved.</p>
+                <p>Designed by Chitwan I.T Solutions Pvt. Ltd.</p>
+            </div>
+        </footer>
+        <!-- Copyright Close -->
+</body>
+</html>

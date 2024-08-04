@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalinchowk Hotel & Guest House</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <script src="https://kit.fontawesome.com/4d276fa6f1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Navigation Menu Open-->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="index.html">Kalinchowk Hotel & Guest House</a></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#services" id="scrollToServices">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#contact" id="scrollToServices">Contact</a></li>
+                <li><a href="#request" id="scrollToServices">Call</a></li>
+
+            </ul>
+            <a href="https://www.zoho.com/mail" class="action_btn">Email</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services" id="scrollToServices">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#contact" id="scrollToServices">Contact</a></li>
+            <li><a href="#request" id="scrollToServices">Call</a></li>
+            <a href="https://www.zoho.com/mail" class="action_btn">Email</a>
+        </div>
+    </header>
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        };
+    </script>
+    <!--Navigation Menu Close-->
+
+
+
+
+    <!--Home Page Open-->
+    <div class="container">
+        <div class="home">
+            <a href="https://www.facebook.com/chitwanit" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <h2>Kalinchowk Hotel & Guest House</h2>
+            <p>Good Food Quality Good Service </p>
+        </div>
+    </div>
+    <!--Home Page Close-->
+
+
+
+
+
+    <!--Service Open-->
+    <div id="service">
+        <section class="services">
+        <div class="row-2">
+            <div class="col-2">
+                <h3>Personalized Guest Experience</h3>
+                <p>This service helps guests feel valued and creates a memorable experience that encourages repeat visits.</p>
+            </div>
+            <div class="col-2">
+                <h3>Concierge Services</h3>
+                <p>Concierge services make it easier for guests to enjoy their stay without having to handle the logistics themselves.</p>
+            </div>
+            <div class="col-2">
+                <h3>Comfort and Cleanliness</h3>
+                <p>Maintaining high standards of cleanliness and comfort ensures that guests have a pleasant and relaxing stay.</p>
+            </div>
+            <div class="col-2">
+                <h3>Breakfast and Dining Options</h3>
+                <p>Offering quality dining options can enhance guest satisfaction and provide a convenient and enjoyable start to their day.</p>
+            </div>
+        </div>
+        </section>
+    </div>
+    <!--Service Close-->
+
+
+
+
+
+
+
+
+
+
+<!-- Request Open -->
+<div id="request">
+    <form id="callbackForm"
+        action="https://script.google.com/macros/s/AKfycbzlqjYx9Fzo05ml0zmrIRB3HTFRDWT59zWeHWxNwEO_FIFXSwdngonmdxopfza6t9tIYA/exec"
+        method="post">
+        <div class="row-request">
+            <div class="col-requestleft">
+                <h2>Request a Free Call Back</h2>
+                <p>Provide discussion information and we'll get back to you as soon as possible.</p>
+            </div>
+            <div class="col-requestright">
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <select name="service" id="serviceSelect" required>
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="Room Service">Room Service</option>
+                    <option value="Wi-Fi Access">Wi-Fi Access</option>
+                    <option value="Housekeeping">Housekeeping</option>
+                    <option value="Concierge Services">Concierge Services</option>
+                    <option value="Transportation Services">Transportation Services</option>
+                    <option value="Business Services">Business Services</option>
+                    <option value="Dining Options">Dining Options</option>
+                    <option value="Laundry and Dry Cleaning">Laundry and Dry Cleaning</option>
+                    <option value="Other">Other</option>
+                </select>
+                <textarea id="otherServiceDetails" name="otherServiceDetails" placeholder="Please specify details (if applicable)" style="display: none;"></textarea>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Phone No" required>
+                <div class="submit-btn">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </div>
+                <div id="successMessage" class="message">
+                    Your message has been sent successfully!
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    document.getElementById('callbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var formData = new FormData(this);
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                // Show success message
+                var successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                
+                // Hide message after 3 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 3000);
+                
+                // Reset form fields
+                event.target.reset();
+                document.getElementById('otherServiceDetails').style.display = 'none'; // Hide additional input field
+            } else {
+                alert('There was a problem with your submission.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was a problem with your submission.');
+        });
+    });
+
+    document.getElementById('serviceSelect').addEventListener('change', function() {
+        var otherServiceDetails = document.getElementById('otherServiceDetails');
+        if (this.value === 'Other') {
+            otherServiceDetails.style.display = 'block'; // Show additional input field
+        } else {
+            otherServiceDetails.style.display = 'none'; // Hide additional input field
+        }
+    });
+</script>
+<!-- Request Close -->
+
+
+
+
+    <!-- Contact Section Open -->
+     <div id="contact">
+    <section class="contact">
+        <h2 class="contact-us">Contact Us</h2>
+        <div class="contact-content">
+                    <div class="contact-left">
+                        <h3>Phone</h3>
+                        <div class="contact-item">
+                            <span class="phone"><i class="fa-solid fa-phone-volume"></i></span>
+                            <a href="tel:9866394400">
+                                <div>
+                                    <span>Ram Hari Thapa</span>
+                                    <span>Proprietor</span>
+                                    <span>9866394400</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="phone"><i class="fa-solid fa-phone-volume"></i></span>
+                            <a href="tel:9813163182">
+                                <div>
+                                    <span>Ram Hari Thapa</span>
+                                    <span>Proprietor</span>
+                                    <span>9813163182</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="phone"><i class="fa-solid fa-phone-volume"></i></span>
+                            <a href="tel:9866516465">
+                                <div>
+                                    <span>Laxmi Adhikari Thapa</span>
+                                    <span>Manager</span>
+                                    <span>9866516465</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="phone"><i class="fa-solid fa-phone-volume"></i></span>
+                            <a href="tel:9866516470">
+                                <div>
+                                    <span>Laxmi Adhikari Thapa</span>
+                                    <span>Manager</span>
+                                    <span>9866516470</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <h3>WhatsApp</h3>
+                        <div class="contact-item">
+                            <span class="whatapp"><i class="fa-brands fa-square-whatsapp"></i></span>
+                            <a href="https://wa.me/9866394400">
+                                <div>
+                                    <span>Kalinchowk Hotel & GuestHouse</span>
+                                    <span>9866394400</span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <!-- Second Column: Email and Viber -->
+                    <div class="contact-right">
+                        <div class="email-section">
+                            <h3>Email</h3>
+                            <a href="mailto:thaparamhari418@gmail.com">
+                                <span class="mail"><i class="fa-solid fa-envelope-circle-check"></i></span>
+                                <span>thaparamhari418@gmail.com</span>
+                            </a>
+                            <a href="mailto:reception@kalinchowkhotel.com.np">
+                                <span class="mail"><i class="fa-solid fa-envelope-circle-check"></i></span>
+                                <span>reception@kalinchowkhotel.com.np</span>
+                            </a>
+                            <a href="mailto:admin@kalinchowkhotel.com.np">
+                                <span class="mail"><i class="fa-solid fa-envelope-circle-check"></i></span>
+                                <span>admin@kalinchowkhotel.com.np</span>
+                            </a>
+                        </div>
+                        <h3>Viber</h3>
+                        <div class="contact-item">
+                            <span class="viber"><i class="fa-brands fa-viber"></i></span>
+                            <a href="viber://chat?number=9866394400">
+                                <div>
+                                    <span>Kalinchowk Hotel & GuestHouse</span>
+                                    <span>9866394400</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+    <!--Contact Section Close-->
+
+
+
+
+
+    <!--Google map-->
+    <div class="map-container">
+        <h3>Our Location</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d522.6576069053564!2d83.9854622518884!3d28.207091880035232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399595006d35f84f%3A0x3b31278d1a341e10!2sKalinchwok%20hotel%20%26%20Guest%20House!5e0!3m2!1sen!2snp!4v1722761416926!5m2!1sen!2snp%22%20width=%22600%22%20height=%22450%22%20style=%22border:0;%22%20allowfullscreen=%22%22%20loading=%22lazy%22%20referrerpolicy=%22no-referrer-when-downgrade%22"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!--Google map-->
+
+
+
+
+
+    <!--Go To Top Open-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-up-long"></i></button>
+    <script>
+        // Get the button:
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+        } else {
+     mybutton.style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+    </script>
+    <!--Go To Top Close-->
+
+
+
+
+    <!-- Copyright Open -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Kalinchowk Hotel & Guest All rights reserved.</p>
+            <p>Designed by Chitwan I.T Solutions Pvt. Ltd.</p>
+        </div>
+    </footer>
+    <!-- Copyright Close -->
+
+    <!--Script For Ht,l CSroll-behavior-->
+    <script>
+        // JavaScript to handle smooth scroll if not using CSS scroll-behavior
+        document.getElementById('scrollToServices').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            document.getElementById('services').scrollIntoView({
+                behavior: 'smooth' // Smooth scrolling
+            });
+        });
+    </script>
+    <!--Script For Ht,l CSroll-behavior-->
+
+</body>
+</html>
